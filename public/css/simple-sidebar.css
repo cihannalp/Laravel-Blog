@@ -36,7 +36,7 @@
 #sidebar-wrapper {
     z-index: 1000;
     position: fixed;
-    left: 230px;
+    left: 0px;
     width: 0;
     height: 100%;
     margin-left: 0px;

@@ -18,10 +18,9 @@
 
 	</head>
 	<body>
-		<div class="container">
-			@include('partials.navbar')
-			@include('partials.sidebar')
-		</div>
-		<!-- /container -->
+		@include('partials.navbar')
+		@include('partials.sidebar')
+		
+		
 	</body>
 </html>

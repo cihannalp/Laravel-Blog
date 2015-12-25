@@ -12,7 +12,7 @@
 </div>
 
 <div class="form-group">
-{!! Form::submit('Create', ['class' => 'btn-submit'])!!}
+{!! Form::submit($submitButton, ['class' => 'btn-submit'])!!}
 </div>
 
 

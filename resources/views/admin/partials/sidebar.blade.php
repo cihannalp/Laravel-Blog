@@ -9,7 +9,6 @@
       <ul class="sidebar-nav" id="sidebar">
           <li><a href="/admin/articles">Articles<span class="glyphicon glyphicon-link"></span></a></li>
           <li><a href="#">Users<span class="glyphicon glyphicon-link"></span></a></li>
-          <li><a href="#">link2<span class="glyphicon glyphicon-link"></span></a></li>
         </ul>
       </div>
           

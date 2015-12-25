@@ -21,5 +21,9 @@ Route::get('admin/articles', 'Admin\ArticlesController@index');
 Route::get('admin/articles/create', 'Admin\ArticlesController@create');
 Route::post('admin/articles', 'Admin\ArticlesController@store');
 Route::get('admin/articles/{id}','Admin\ArticlesController@show');
+Route::get('admin/articles/{id}/edit','Admin\ArticlesController@edit');
+Route::put('admin/articles/{id}','Admin\ArticlesController@update');
+Route::get('admin/articles/{id}/destroy', 'Admin\ArticlesController@destroy');
+
 
 

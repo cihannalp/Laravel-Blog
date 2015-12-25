@@ -11,7 +11,8 @@ class ArticlesController extends Controller
 {
     public function index()
     {
-    	$articles = Article::all();
+    	$articles = Article::orderBy('updated_at','desc')->get();
+
     	return view('admin.articles.articles', compact('articles'));
     }
 
@@ -37,6 +38,33 @@ class ArticlesController extends Controller
     	
     	return redirect('admin/articles');
 
+    }
+
+    public function edit($id)
+    {	
+    	$article =Article::find($id);
+    	return view('admin.articles.edit', compact('article'));
+
+    }
+
+    public function update($id)
+    {	
+    	$article =Article::find($id);
+    	$input = Request::all();
+    	$article->update([
+    		'title'=>$input['title'],
+    		'body' =>$input['body']
+    		]);
+
+    	return redirect('/admin/articles');
+    }
+
+    public function destroy($id)
+    {
+    	$article = Article::find($id);
+    	$article->delete();
+    	
+    	return redirect('/admin/articles');
     }
 
 }
