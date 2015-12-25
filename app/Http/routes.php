@@ -20,4 +20,6 @@ Route::get('admin', 'Admin\AdminController@index');
 Route::get('admin/articles', 'Admin\ArticlesController@index');
 Route::get('admin/articles/create', 'Admin\ArticlesController@create');
 Route::post('admin/articles', 'Admin\ArticlesController@store');
+Route::get('admin/articles/{id}','Admin\ArticlesController@show');
+
 

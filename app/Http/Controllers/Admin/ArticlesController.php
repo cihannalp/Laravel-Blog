@@ -15,6 +15,12 @@ class ArticlesController extends Controller
     	return view('admin.articles.articles', compact('articles'));
     }
 
+    public function show($id)
+    {
+    	$article = Article::find($id);
+    	return view('admin.articles.show',compact('article'));
+    }
+
     public function create()
     {
     	return view('admin.articles.create');
@@ -32,4 +38,5 @@ class ArticlesController extends Controller
     	return redirect('admin/articles');
 
     }
+
 }
