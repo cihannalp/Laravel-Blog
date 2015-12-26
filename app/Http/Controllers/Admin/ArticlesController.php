@@ -6,7 +6,7 @@ use Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
-
+use Flash;
 class ArticlesController extends Controller
 {
     public function index()
@@ -16,18 +16,21 @@ class ArticlesController extends Controller
     	return view('admin.articles.articles', compact('articles'));
     }
 
+    
     public function show($id)
     {
     	$article = Article::find($id);
     	return view('admin.articles.show',compact('article'));
     }
 
+    
     public function create()
     {
     	return view('admin.articles.create');
 
     }
 
+    
     public function store()
     {	
     	$input = Request::all();
@@ -36,10 +39,12 @@ class ArticlesController extends Controller
     		'body' =>$input['body']
     		]);
     	
+        Flash::overlay('done');
     	return redirect('admin/articles');
 
     }
 
+    
     public function edit($id)
     {	
     	$article =Article::find($id);
@@ -47,6 +52,7 @@ class ArticlesController extends Controller
 
     }
 
+    
     public function update($id)
     {	
     	$article =Article::find($id);
@@ -59,6 +65,7 @@ class ArticlesController extends Controller
     	return redirect('/admin/articles');
     }
 
+    
     public function destroy($id)
     {
     	$article = Article::find($id);

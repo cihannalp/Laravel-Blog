@@ -15,6 +15,8 @@ Route::get('/', 'PagesController@index');
 Route::get('about', 'PagesController@about');
 Route::get('contact', 'PagesController@contact');
 
+Route::get('articles','ArticleController@index');
+
 Route::get('admin', 'Admin\AdminController@index');
 
 Route::get('admin/articles', 'Admin\ArticlesController@index');

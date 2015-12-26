@@ -15,4 +15,7 @@
 </body>
 <script type="text/javascript" src="/../js/jquery.js"></script>
 <script type="text/javascript" src="/../js/bootstrap.js"></script>
+  <script>
+    $('#flash-overlay-modal').modal();
+</script>
 </html>
