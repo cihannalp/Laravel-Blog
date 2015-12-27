@@ -39,7 +39,7 @@ class ArticlesController extends Controller
     		'body' =>$input['body']
     		]);
     	
-        Flash::overlay('done');
+        Flash::overlay('Article is created successfully...');
     	return redirect('admin/articles');
 
     }
@@ -61,7 +61,7 @@ class ArticlesController extends Controller
     		'title'=>$input['title'],
     		'body' =>$input['body']
     		]);
-
+        Flash::overlay('Article is updated successfully...');    
     	return redirect('/admin/articles');
     }
 
@@ -70,7 +70,7 @@ class ArticlesController extends Controller
     {
     	$article = Article::find($id);
     	$article->delete();
-    	
+        Flash::error('Article is deleted successfully...');	
     	return redirect('/admin/articles');
     }
 

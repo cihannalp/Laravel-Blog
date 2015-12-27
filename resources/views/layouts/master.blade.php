@@ -15,9 +15,7 @@
 
 		<!-- Custom CSS -->
 		<link href="css/simple-sidebar.css" rel="stylesheet">
-		<script>
-   		$('#flash-overlay-modal').modal();
-		</script>
+		
 
 	</head>
 	<body>
@@ -26,4 +24,5 @@
 		
 		
 	</body>
+	<script type="text/javascript" src="js/mystyle.js"></script>
 </html>

@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('content')
-@include('partials.flashMessage')
+
 <div class="well">
 <h1>Articles</h1><br>
 </div>
@@ -24,8 +24,8 @@
         <td>{{ $article->updated_at }}</td>
         <td>
 	    	<div class="btn-group">
-				<a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-success">Edit</a>
-				<a href="/admin/articles/{{ $article->id }}/destroy" class="btn btn-danger">Delete</a>
+				<a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-success" onClick="warnme();">Edit</a>
+				<a href="/admin/articles/{{ $article->id }}/destroy" class="btn btn-danger" id="deleteButton" onClick="warn()">Delete</a>
 			</div>
 		</td>
       </tr>

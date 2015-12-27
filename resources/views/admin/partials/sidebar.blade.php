@@ -1,5 +1,5 @@
 
-
+<!--  Admin Sidebar -->
 
 <div id="wrapper" class="active">
       
@@ -18,6 +18,7 @@
         <div class="page-content inset">
           <div class="row">
               <div class="col-md-12">
+              @include('partials.flashMessage')
               @yield('content')
             </div>
           </div>
