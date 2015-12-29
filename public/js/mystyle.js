@@ -7,7 +7,7 @@ function fade_out() {
 
 function warnme() {
 	
-	return r = false;
-	
-
+	return confirm('Are you sure delete this item?');
 }
+
+

@@ -25,7 +25,7 @@
         <td>
 	    	<div class="btn-group">
 				<a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-success" onClick="warnme();">Edit</a>
-				<a href="/admin/articles/{{ $article->id }}/destroy" class="btn btn-danger" id="deleteButton" onClick="warn()">Delete</a>
+				<a href="/admin/articles/{{ $article->id }}/destroy" class="btn btn-danger" id="deleteButton" onClick="return warnme();">Delete</a>
 			</div>
 		</td>
       </tr>

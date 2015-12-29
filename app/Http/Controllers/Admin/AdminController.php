@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Validator;
+use Auth;
+use App\Admin;
 
 class AdminController extends Controller
 {
@@ -21,69 +24,59 @@ class AdminController extends Controller
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    
+    public function showLogin()
     {
-        //
+
+        return view('admin.auth.login');    
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function logIn()
     {
-        //
+        $request = Request::all();
+        $rules = [
+            'email' => 'required|email',
+            'password' => 'required|alphaNum|min:3'
+        ];
+
+        $validator = Validator::make($request, $rules);
+
+        if ($validator->fails())
+        {
+            echo 'fail validator';
+            return redirect('/admin/login')->withErrors($validator)->withInput(Request::except('password'));
+
+        }
+        else
+        {   
+            
+            $admindata = [
+                'email' => $request['email'],
+                'password' => $request['password']
+            ];
+
+            if(Auth::attempt($admindata))
+            {
+                return redirect('/admin');
+            }
+
+            else
+            {
+                echo 'fail';
+                
+            }
+        }        
+
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    
+    public function logOut()
     {
-        //
+
+    
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
 }
