@@ -24,9 +24,11 @@
         <td>{{ $article->updated_at }}</td>
         <td>
 	    	<div class="btn-group">
-				<a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-success" onClick="warnme();">Edit</a>
-				<a href="/admin/articles/{{ $article->id }}/destroy" class="btn btn-danger" id="deleteButton" onClick="return warnme();">Delete</a>
-			</div>
+				<a href="/admin/articles/{{ $article->id }}/edit" class="btn btn-success" }}>Edit</a>
+				{!! Form::open(array('route' => array('admin.articles.destroy', $article->id), 'method' => 'delete', 'class' => 'deleteForm')) !!}
+        <button type="submit" class="btn btn-danger">Delete</button>
+        {!! Form::close() !!}
+			 </div>
 		</td>
       </tr>
     @endforeach  

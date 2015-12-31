@@ -2,4 +2,6 @@
 
 @section('content')
 
+@include('admin.users.form')
+
 @stop
