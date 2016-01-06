@@ -8,7 +8,7 @@
       <div id="sidebar-wrapper">
       <ul class="sidebar-nav" id="sidebar">
           <li><a href="/admin/articles">Articles<span class="glyphicon glyphicon-link"></span></a></li>
-          <li><a href="#">Users<span class="glyphicon glyphicon-link"></span></a></li>
+          <li><a href="/admin/users">Users<span class="glyphicon glyphicon-link"></span></a></li>
         </ul>
       </div>
           

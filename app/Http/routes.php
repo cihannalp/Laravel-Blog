@@ -26,12 +26,16 @@ Route::get('permission','PermissionController@createPermission');
 Route::get('articles','ArticleController@index');
 
 
-Route::group(['middleware' => 'auth'], function()
+Route::group(['middleware' => ['role:admin']], function()
+{
+	
+	Route::resource('admin/users', 'Admin\UsersController');
+});
+
+Route::group(['middleware' => ['role:admin|author']], function()
 {
 	Route::get('admin', 'Admin\AdminController@index');
 	Route::resource('admin/articles', 'Admin\ArticlesController');
+
 });
-
-
-Route::resource('admin/users', 'Admin\UsersController');
 

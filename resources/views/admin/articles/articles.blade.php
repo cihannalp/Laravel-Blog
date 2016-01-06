@@ -28,7 +28,7 @@
 				{!! Form::open(array('route' => array('admin.articles.destroy', $article->id), 'method' => 'delete', 'class' => 'deleteForm')) !!}
         <button type="submit" class="btn btn-danger">Delete</button>
         {!! Form::close() !!}
-			 </div>
+			  </div>
 		</td>
       </tr>
     @endforeach  
