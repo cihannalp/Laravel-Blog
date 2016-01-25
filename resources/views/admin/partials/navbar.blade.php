@@ -14,8 +14,8 @@
             <li><a href=""></a></li>
           </ul>
         </li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contact</a></li>
+        <li><a href="#">1</a></li>
+        <li><a href="#">2</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>

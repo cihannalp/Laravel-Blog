@@ -20,22 +20,25 @@ Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
 //
-Route::get('role', 'RoleController@createRole');
-Route::get('permission','PermissionController@createPermission');
+
+
 
 Route::get('articles','ArticleController@index');
 
 
+Route::resource('/articles/comment','CommentsController');
+
+
 Route::group(['middleware' => ['role:admin']], function()
 {
-	
 	Route::resource('admin/users', 'Admin\UsersController');
 });
+
 
 Route::group(['middleware' => ['role:admin|author']], function()
 {
 	Route::get('admin', 'Admin\AdminController@index');
 	Route::resource('admin/articles', 'Admin\ArticlesController');
-
 });
+
 

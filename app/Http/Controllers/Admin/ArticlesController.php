@@ -47,7 +47,7 @@ class ArticlesController extends Controller
     
     public function edit($id)
     {	
-    	$article =Article::find($id);
+    	$article = Article::find($id);
     	return view('admin.articles.edit', compact('article'));
 
     }
@@ -55,7 +55,7 @@ class ArticlesController extends Controller
     
     public function update($id)
     {	
-    	$article =Article::find($id);
+    	$article = Article::find($id);
     	$input = Request::all();
     	$article->update([
     		'title'=>$input['title'],

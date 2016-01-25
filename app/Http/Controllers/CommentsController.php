@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers;
 
-use Request;
+use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
-use App\User;
-use App\Role;
-use DB;
-class UsersController extends Controller
+use App\Article;
+use App\Comment;
+
+class CommentsController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,8 +18,7 @@ class UsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
-        return view('admin.users.users', compact('users'));
+        //
     }
 
     /**
@@ -29,9 +28,7 @@ class UsersController extends Controller
      */
     public function create()
     {
-
-        return view('admin.users.create');
-
+        //
     }
 
     /**
@@ -42,21 +39,7 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-  
-        $user = new User();
-        
-        $request = Request::all();
-        $role = Role::find($request['user']);
-        
-        $user->name = $request['name'];
-        $user->email = $request['email'];
-        $user->password = bcrypt($request['password']);
-        $user->save();
-
-        $user->roles()->attach($role->id);
-
-        return redirect('/admin/users');
-
+        //
     }
 
     /**
@@ -67,7 +50,7 @@ class UsersController extends Controller
      */
     public function show($id)
     {
-        
+        //
     }
 
     /**
@@ -78,8 +61,7 @@ class UsersController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('admin.users.edit', compact('user'));
+        //
     }
 
     /**
@@ -91,17 +73,7 @@ class UsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $input = Request::all();
-        $role = Role::find($input['user']);
-        $user->update([
-            'name'=> $input['name'],
-            'email' => $input['email'],
-            'password'=> bcrypt($input['password'])     
-            ]);
-        
-        $affected = DB::update('update role_user set role_id = ? where user_id = ?', [$role->id, $id]);
-        return redirect('/admin/users');
+        //
     }
 
     /**
@@ -112,9 +84,6 @@ class UsersController extends Controller
      */
     public function destroy($id)
     {
-        $user = User::find($id);
-        $user->delete();
-
-        return redirect('/admin/users');
+        //
     }
 }

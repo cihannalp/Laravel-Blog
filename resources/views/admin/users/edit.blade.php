@@ -18,11 +18,14 @@
                                 </ul>
                             </div>
                         @endif
-	
-	{!! Form::open(['url'=>'admin/users','method'=>'post']) !!}
-	
-	@include('admin.users.form',['submitButton'=>'Create User'])
-	
-	{!! Form::close() !!}
+
+                       	{!! Form::model($user,array('url' => array('admin/users', $user->id),'method'=>'put')) !!}
+
+
+						@include('admin.users.form',['submitButton'=>'Update User'])
+
+						
+						{!! Form::close() !!}
+
 
 @stop
