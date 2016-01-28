@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
 use App\Comment;
-
+use Auth;
 class CommentsController extends Controller
 {
     /**
@@ -26,9 +26,10 @@ class CommentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $article = Article::find($id);
+        return view('comments.create', compact('article'));
     }
 
     /**
@@ -37,9 +38,21 @@ class CommentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+        $request = Request::all();
+        $comment = new Comment();
+        $comment->user()->associate(Auth::user()->id);
+        $comment->article()->associate($request['articleID']);
+        $comment->comment = $request['comment'];
+        
+
+        $comment->save();
+
+        return redirect('/articles/'.$request['articleID']);
+
+        
+
     }
 
     /**
@@ -60,9 +73,16 @@ class CommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {   
+        
+        $comment = Comment::find($id);
+        if($comment->user_id != Auth::user()->id)
+        {
+            return redirect()->back();
+        }    
+        return view('comments.edit',compact('comment'));
     }
+
 
     /**
      * Update the specified resource in storage.
@@ -71,9 +91,18 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id)
     {
-        //
+        $request = Request::all();
+        $comment = Comment::find($id);
+        
+        $comment->update([
+            'comment' => $request['comment']
+            ]);
+       
+       
+        return redirect('/articles/'.$comment->article_id);
+        
     }
 
     /**
@@ -83,7 +112,15 @@ class CommentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+
+        $comment = Comment::find($id);
+        if($comment->user_id != Auth::user()->id)
+        {
+            return redirect()->back();
+        }    
+        $article = $comment->article_id;
+        $comment->delete();
+        return redirect('/articles/'.$article);
     }
 }

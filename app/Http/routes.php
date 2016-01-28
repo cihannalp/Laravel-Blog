@@ -19,14 +19,20 @@ Route::get('auth/login', 'Auth\AuthController@getLogin');
 Route::post('auth/login', 'Auth\AuthController@postLogin');
 Route::get('auth/logout', 'Auth\AuthController@getLogout');
 
-//
-
+Route::group(['middleware'=>['role:admin|author|user']], function()
+{
+	Route::get('articles/{id}/comment/create','CommentsController@create');
+	Route::post('articles/{id}','CommentsController@store');
+	Route::get('articles/comment/{id}/edit','CommentsController@edit');
+	Route::put('articles/comment/{id}','CommentsController@update');
+	Route::get('articles/comment/{id}/destroy','CommentsController@destroy');
+});
 
 
 Route::get('articles','ArticleController@index');
+Route::get('articles/{id}','ArticleController@show');
 
 
-Route::resource('/articles/comment','CommentsController');
 
 
 Route::group(['middleware' => ['role:admin']], function()

@@ -12,6 +12,7 @@
     <thead>
       <tr>
         <th>Title</th>
+        <th>Created By</th>
         <th>Created At</th>
         <th>Updated At</th>
       </tr>
@@ -20,6 +21,7 @@
     @foreach($articles as $article)
       <tr>
         <td><a href="/admin/articles/{{$article->id}}">{{ $article->title}}</a></td>
+        <td>{{ $user->find($article->user_id)->name }}</td>
         <td>{{ $article->created_at }}</td>
         <td>{{ $article->updated_at }}</td>
         <td>

@@ -7,13 +7,15 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use App\Article;
 use Flash;
+use Auth;
+use App\User;
 class ArticlesController extends Controller
 {
     public function index()
     {
     	$articles = Article::orderBy('updated_at','desc')->get();
-
-    	return view('admin.articles.articles', compact('articles'));
+        $user = new User();
+    	return view('admin.articles.articles', compact('articles','user'));
     }
 
     
@@ -26,19 +28,21 @@ class ArticlesController extends Controller
     
     public function create()
     {
-    	return view('admin.articles.create');
+    	
+        return view('admin.articles.create');
 
     }
 
     
     public function store()
     {	
-    	$input = Request::all();
-    	Article::create([
-    		'title'=>$input['title'],
-    		'body' =>$input['body']
-    		]);
-    	
+        $input = Request::all();
+        Auth::user()->articles()->create([
+            'title' => $input['title'],
+            'body'  => $input['body']
+            ]);
+
+           	
         Flash::success('Article is created successfully...');
     	return redirect('admin/articles');
 

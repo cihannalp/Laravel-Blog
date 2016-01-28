@@ -11,10 +11,12 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
 		<!-- Custom styles for this template -->
-		<link href="css/bootstrap.css" rel="stylesheet">
+		<link href="/css/bootstrap.css" rel="stylesheet">
 
 		<!-- Custom CSS -->
-		<link href="css/simple-sidebar.css" rel="stylesheet">
+		<link href="/css/simple-sidebar.css" rel="stylesheet">
+
+		<link rel="stylesheet" type="text/css" href="/css/comments.css">
 		
 
 	</head>
@@ -24,5 +26,5 @@
 		
 		
 	</body>
-	<script type="text/javascript" src="js/mystyle.js"></script>
+	<script type="text/javascript" src="/js/mystyle.js"></script>
 </html>
