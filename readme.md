@@ -1,6 +1,9 @@
 Change to directory that cloned and write commands:
-	composer install
-	php artisan migrate
+
+    composer install
+
+    php artisan migrate
+
 	php artisan db:seed
 
 
