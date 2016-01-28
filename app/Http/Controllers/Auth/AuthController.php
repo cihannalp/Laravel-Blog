@@ -7,6 +7,7 @@ use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
+use Request;
 
 class AuthController extends Controller
 {
@@ -59,4 +60,19 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
+    public function register()
+    {
+        $user = new User();
+        
+        $request = Request::all();
+        
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->password = bcrypt($request['password']);
+        $user->save();
+        $user->roles()->attach($request['role_id']);
+        return redirect('/auth/login');
+    }
+
 }

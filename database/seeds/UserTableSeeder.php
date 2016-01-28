@@ -15,6 +15,8 @@ class UserTableSeeder extends Seeder
             'name' => 'Cihan',
             'email' => 'cihan@example.com',
             'password' => bcrypt('qwe123qwe'),
+            'created_at' => Carbon\Carbon::now(),
+            'updated_at' => Carbon\Carbon::now()
         ]);
         
     }

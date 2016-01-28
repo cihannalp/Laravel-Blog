@@ -52,8 +52,9 @@ class ArticlesController extends Controller
     public function edit($id)
     {	
     	$article = Article::find($id);
-    	return view('admin.articles.edit', compact('article'));
-
+        
+        return view('admin.articles.edit', compact('article'));
+        
     }
 
     

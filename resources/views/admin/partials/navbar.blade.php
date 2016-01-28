@@ -18,8 +18,18 @@
         <li><a href="#">2</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      @if(!Auth::check())
+        <li>
+          <a href="/auth/register"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+        </li>
+        <li>
+          <a href="/auth/login"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+        </li>
+      @else
+      <li>
+        <a href="/auth/logout"><span class="glyphicon glyphicon-log-in"></span> Logout</a>
+      </li>
+      @endif
       </ul>
     </div>
   </div>
