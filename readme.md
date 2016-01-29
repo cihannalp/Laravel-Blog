@@ -22,7 +22,7 @@ return redirect('/auth/login');
 
 After database seeding `admin username = cihan@example.com` and `password = 12345`
 
-This is my first web project with laravel. Thank you to www.laracasts.com is i have learned laravel still following there and https://github.com/Zizaco/entrust. Im sure have many problems, tons of missing and incomplete things. Pls let me know all things that will help to me and strenght my skills a step further.   
+This is my first web project with laravel. Thanks to www.laracasts.com is i have learned laravel still following there and https://github.com/Zizaco/entrust. Im sure have many problems, tons of missing and incomplete things. Pls let me know all things that will help to me and strenght my skills a step further.   
 	
 
 
